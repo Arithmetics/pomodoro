@@ -1,0 +1,42 @@
+p {
+
+}
+
+.red {
+  color: red;
+}
+
+
+.master {
+  min-width: 980px;
+  background-color: grey;
+  margin: auto 0;
+  display: block;
+}
+
+.wrapper {
+  margin: 0 auto;
+  display: block;
+}
+
+.button {
+  background-color: blue;
+  font-size: 20px;
+  width: 100px;
+  height: 35px;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+  margin: auto 10px;
+
+
+
+}
+
+.clock {
+  margin: 30px;
+
+  font-size: 40px;
+
+}
