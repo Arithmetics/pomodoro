@@ -34,6 +34,10 @@ p {
 
 }
 
+.dir {
+  background-color: yellow;
+}
+
 .clock {
   margin: 30px;
 

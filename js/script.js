@@ -1,13 +1,19 @@
 $(document).ready(function(){
   var clicked = 0;
   var interval;
+  var secs = (10);
+  $("p").text(secs);
+  var cycle;
+  var work = true;
+  $(".dir").text("work time!");
+
 
   $("#reset").click(function(){
-    var bob = new Date(null);
-    date.setSeconds(0);
-    date.setMinutes(0);
-    var time = String(date).substring(19,24);
-    $("p").text(time);
+    secs = (10);
+    work = true;
+    $("p").text(secs);
+    $('.dir').css('background-color', 'yellow');
+    $(".dir").text("work time!");
   })
 
   $("#start").click(function(){
@@ -15,25 +21,36 @@ $(document).ready(function(){
       $("#start").text("PAUSE");
       clicked = clicked + 1;
 
-      var startTime = new Date().getTime();
-      var currentTime = new Date().getTime();
-      var elapsedTime = new Date();
-
+      
       function elapse() {
-        var currentTime = new Date().getTime();
-        elapsedTime = new Date(currentTime -startTime);
-        elapsedTime = String(elapsedTime).substring(19,24);
-        $("p").text(elapsedTime);
+
+        if (secs > 0){
+        secs -= 1;
+        $("p").text(secs);
+        } else {
+          if (work == false) {
+            secs = (10);
+            work = true;
+            $('.dir').css('background-color', 'yellow');
+            $(".dir").text("work time!");
+          } else{
+            secs = (5);
+            work = false;
+            $('.dir').css('background-color', 'green');
+            $(".dir").text("break time!");
+          } 
+        }
       }
 
-      bob = setInterval(function(){elapse() }, 10);
+      cycle = setInterval(function(){elapse() }, 1000);
+
       $("p").text(elapsedTime);
 
 
     } else {
       $("#start").text("START");
       clicked += 1;
-      clearInterval(bob);
+      clearInterval(cycle);
     }
   })
 
